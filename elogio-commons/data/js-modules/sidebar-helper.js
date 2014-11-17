@@ -109,6 +109,7 @@ Elogio.modules.sidebarHelper = function (modules) {
             }
             return value;
         }
+
         var stringJson = {
             locatorLink: annotations.locatorLink,
             titleLabel: annotations.titleLabel,
@@ -157,7 +158,7 @@ Elogio.modules.sidebarHelper = function (modules) {
             imageList.append(cardElement);
         }
         // If we didn't send lookup query before - show loading
-        if (!imageObj.hasOwnProperty('lookup')) {
+        if (!imageObj.hasOwnProperty('lookup') && !imageObj.error) {
             cardElement.find('.loading').show();
             return; // Waiting for lookup....
         } else {
